@@ -1,0 +1,40 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - $HOME/docker/volumes/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - DATABASE_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
+    networks:
+      - demo
+
+  server:
+    build: ./server
+    ports: 
+     - "8082:8082"
+    environment:
+     - ENVIRONMENT=production
+    depends_on:
+     - db
+    networks:
+     - demo
+
+  # app:
+  #  build: ./app
+  #  ports: 
+  #    - "3000:3000"
+  #  depends_on:
+  #    - db
+  #    - server
+  #  networks:
+  #     - demo
+
+networks:
+  demo:
+    driver: bridge
