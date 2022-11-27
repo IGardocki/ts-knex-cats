@@ -6,3 +6,4 @@ To set up a TS react app, use the cmd:
 
 npx create-react-app my-app --template typescript
 (https://create-react-app.dev/docs/adding-typescript/)
+# BIOE_290
