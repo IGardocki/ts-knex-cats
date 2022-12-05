@@ -1,4 +1,6 @@
-export interface ICat {
+export interface ICat { //interface like a contract-you can
+  // "subscribe" to multiple. With types you can only have
+  // it be ONE type. Type is stronger statement than interface
     id: number,
     name: string,
     color_id: number,
@@ -6,8 +8,12 @@ export interface ICat {
     image: string
   }
 
+  // usually can define types directly in file unless exporting
+  // to library
+
+  // if not using jsx, don't have to use tsx files
+
   export type CatContextType = {
     cats: ICat[];
-    // saveTodo: (todo: ITodo) => void;
-    // updateTodo: (id: number) => void;
+    // setCats: (cats: ICat[]) => void;
   };

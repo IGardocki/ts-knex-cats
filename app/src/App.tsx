@@ -17,7 +17,7 @@ function App() {
 
   ]);
 
-  const gettersSetters = { cats, setCats };
+  // const gettersSetters = { cats, setCats };
 
   useEffect(() => {
     fetch('http://localhost:8082/cats')
@@ -30,9 +30,9 @@ function App() {
 
 
   return (
-    // <CatContext.Provider value={{gettersSetters}}>
+    <CatContext.Provider value={{cats:cats}}>
       <Cats />
-    // </CatContext.Provider>
+    </CatContext.Provider>
 
   );
 }
